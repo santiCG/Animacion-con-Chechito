@@ -14,12 +14,27 @@ namespace Sesiones.Santiago.Animation
         [SerializeField] private FloatDampener speedX;
         [SerializeField] private FloatDampener speedY;
 
+        [SerializeField] private float angularSpeed;
+
         [SerializeField] private Camera camera;
 
         private Animator animator;
         Vector2 movInput;
         private int speedXHash;
         private int speedYHash;
+
+        private Quaternion targetRotation;
+
+        private void SolveCharacterRotation()
+        {
+            Vector3 floorNormal = transform.up;
+            Vector3 camForward = camera.transform.forward;
+            float angleInterpolator = Mathf.Abs(Vector3.Dot(camForward, floorNormal));
+            Vector3 cameraForward = Vector3.Lerp(camForward, camera.transform.up, angleInterpolator).normalized;
+            Vector3 characterForward = Vector3.ProjectOnPlane(cameraForward, floorNormal).normalized;
+            //Debug.DrawLine(transform.position, transform.position + characterForward * 2, Color.magenta, 5f);
+            targetRotation = Quaternion.LookRotation(characterForward, floorNormal);
+        }
 
         public void OnMove(InputAction.CallbackContext context) 
         {
@@ -28,15 +43,10 @@ namespace Sesiones.Santiago.Animation
             speedX.TargetValue = movInput.x;
             speedY.TargetValue = movInput.y;
 
-            Vector3 floorNormal = transform.up;
-            Vector3 camForward = camera.transform.forward;
-            float angleInterpolator = Mathf.Abs(Vector3.Dot(camForward, floorNormal));
-
-            Vector3 cameraForward = Vector3.Lerp(camForward, camera.transform.up, angleInterpolator).normalized;
-
-            Vector3 characterForward = Vector3.ProjectOnPlane(cameraForward, floorNormal).normalized;
-
-            Debug.DrawLine(transform.position, transform.position + characterForward * 2, Color.magenta, 5f);
+            if(movInput.magnitude > 0.05f) 
+            {
+                SolveCharacterRotation();
+            }
         }
 
         private void Awake()
@@ -52,6 +62,7 @@ namespace Sesiones.Santiago.Animation
             speedY.Update();
 
             handleAnimations();
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, angularSpeed);
         }
 
         private void handleAnimations() 
