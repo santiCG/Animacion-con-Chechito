@@ -15,5 +15,5 @@ https://github.com/user-attachments/assets/a9ededf3-4ab2-4ea0-be93-bb38641eb192
 
 ### Jacobo Prada
 
-https://github.com/user-attachments/assets/3f98c4dc-fd86-4aff-b546-5a7fe48ffecc
+https://github.com/user-attachments/assets/d000012e-5c75-42bc-8ce4-35fc7b10f90e
 
