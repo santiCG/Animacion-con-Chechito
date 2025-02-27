@@ -8,25 +8,26 @@ public class CharacterAim : MonoBehaviour, ICharacterComponent
     [SerializeField] private CinemachineCamera aimingCamera;
     [SerializeField] private AimConstraint aimConstraint;
     [SerializeField] private Animator anim;
+    [SerializeField] private FloatDampener aimDampener;
 
     public Character ParentCharacter { get; set; }
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        if(context.started)
-        {
-            aimingCamera?.gameObject.SetActive(true);
-            ParentCharacter.IsAiming = true;
-            aimConstraint.weight = 1f;
-            anim.SetLayerWeight(1, 1);
-        }
+        if (!context.started && !context.canceled) return;
 
-        if(context.canceled)
-        {
-            aimingCamera?.gameObject.SetActive(false);
-            ParentCharacter.IsAiming = false;
-            aimConstraint.weight = 0f;
-            anim.SetLayerWeight(1, 0);
-        }
+        aimingCamera?.gameObject.SetActive(context.started);
+        ParentCharacter.IsAiming = context.started;
+        aimConstraint.enabled = context.started;
+
+        aimDampener.TargetValue = context.started ? 1 : 0;
+    }
+
+    private void Update()
+    {
+        aimDampener.Update();
+
+        aimConstraint.weight = aimDampener.CurrentValue;
+        anim.SetLayerWeight(1, aimDampener.CurrentValue);
     }
 }
