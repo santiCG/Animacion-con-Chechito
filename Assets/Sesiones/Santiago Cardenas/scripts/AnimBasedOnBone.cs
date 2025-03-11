@@ -21,10 +21,10 @@ public class AnimBasedOnBone : StateMachineBehaviour
         Transform characterTrasform = animator.transform;
         Vector3 aimFor = Vector3.ProjectOnPlane(aimTarget.forward, characterTrasform.up).normalized;
         float angle = Vector3.SignedAngle(characterTrasform.forward, aimFor, characterTrasform.up);
-        if(Mathf.Abs(angle) < rotThreshold)
-        {
-            animator.SetTrigger(angle > 0 ? "RotateR" : "RotateL");
-        }
+        //if(Mathf.Abs(angle) < rotThreshold)
+        //{
+        //    animator.SetTrigger(angle > 0 ? "RotateR" : "RotateL");
+        //}
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

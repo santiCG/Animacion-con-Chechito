@@ -29,5 +29,6 @@ public class CharacterAim : MonoBehaviour, ICharacterComponent
 
         aimConstraint.weight = aimDampener.CurrentValue;
         anim.SetLayerWeight(1, aimDampener.CurrentValue);
+        anim.SetLayerWeight(2, aimDampener.CurrentValue);
     }
 }
