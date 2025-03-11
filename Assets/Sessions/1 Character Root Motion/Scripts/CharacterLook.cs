@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterLook : MonoBehaviour, ICharacterComponent
+public class CharacterLookShared : MonoBehaviour, ICharacterComponentShared
 {
     [SerializeField] private Transform target;
 
@@ -15,7 +15,7 @@ public class CharacterLook : MonoBehaviour, ICharacterComponent
 
     private float verticalRotation;
 
-    [field:SerializeField]public Character ParentCharacter { get; set; }
+    [field:SerializeField]public CharacterShared ParentCharacter { get; set; }
 
     public void OnLook(InputAction.CallbackContext ctx)
     {

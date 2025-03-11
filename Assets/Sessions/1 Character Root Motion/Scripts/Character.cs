@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
-public class Character : MonoBehaviour
+public class CharacterShared : MonoBehaviour
 {
     [SerializeField] Transform lockTarget;
 
@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
     private void RegisterComponents()
     {
-        foreach (ICharacterComponent characterComponent in GetComponentsInChildren<ICharacterComponent>())
+        foreach (ICharacterComponentShared characterComponent in GetComponentsInChildren<ICharacterComponentShared>())
         {
             characterComponent.ParentCharacter = this;
         }

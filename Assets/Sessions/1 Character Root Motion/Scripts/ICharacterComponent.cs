@@ -1,4 +1,4 @@
-public interface ICharacterComponent
+public interface ICharacterComponentShared
 {
-    Character ParentCharacter { get; set; }
+    CharacterShared ParentCharacter { get; set; }
 }

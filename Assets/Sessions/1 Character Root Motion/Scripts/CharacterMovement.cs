@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Animator))]
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovementShared : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     [SerializeField] private FloatDampener speedX;

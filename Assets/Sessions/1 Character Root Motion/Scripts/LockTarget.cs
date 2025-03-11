@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LockTarget : MonoBehaviour, ICharacterComponent
+public class LockTargetShared : MonoBehaviour, ICharacterComponentShared
 {
     [SerializeField] private Camera camera;
     [SerializeField] private LayerMask detectionMask;
     [SerializeField] private float detectionRadius;
     [SerializeField] private float detectionAngle;
-    public Character ParentCharacter { get; set; }
+    public CharacterShared ParentCharacter { get; set; }
     
     public void OnLock(InputAction.CallbackContext ctx)
     {
