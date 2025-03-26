@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
 {
     [SerializeField] Transform lockTarget;
 
-    private bool isAiming;
+    public bool isAiming;
     public Transform LockTarget
     {
         get => lockTarget;
