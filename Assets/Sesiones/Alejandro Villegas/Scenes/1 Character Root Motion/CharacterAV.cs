@@ -3,7 +3,7 @@ using UnityEngine;
 public class CharacterAV : MonoBehaviour
 {
     Transform lockTarget;
-    private bool isAiming;
+    [SerializeField] private bool isAiming;
 
     public Transform LockTarget {  get { return lockTarget; } set { value = lockTarget; } }
 
