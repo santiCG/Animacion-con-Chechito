@@ -327,8 +327,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704457285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03129316, y: 0.00000008006854, z: -0.0000000025068247, w: 0.9995103}
-  m_LocalPosition: {x: 1.7086136, y: 2.1037807, z: -3.5874975}
+  m_LocalRotation: {x: 0.060118828, y: -0.0000000021331337, z: 1.2847388e-10, w: 0.99819124}
+  m_LocalPosition: {x: 1.7086136, y: 2.379895, z: -3.6650743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -595,14 +595,56 @@ MonoBehaviour:
     smoothTime: 0.5
   cameraTransform: {fileID: 1854688756}
   rotationSpeed: 10
-  jumpDuration: 1.4
-  jumpCooldown: 1
-  isGrounded: 0
-  GroundedOffset: 0.05
-  GroundedRadius: 0.28
-  GroundLayers:
+--- !u!136 &784078591
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784078584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &784078592
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784078584}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &873119310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -617,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 622176dab13058542b3835495123fdc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: -0.001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 622176dab13058542b3835495123fdc0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -659,10 +701,20 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: fcf7229ce432a46488808b9ce688a316, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 622176dab13058542b3835495123fdc0, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 622176dab13058542b3835495123fdc0, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 784078591}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 622176dab13058542b3835495123fdc0, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 784078592}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 622176dab13058542b3835495123fdc0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 784078588}
@@ -734,14 +786,14 @@ MonoBehaviour:
   Radius: 10
   Orbits:
     Top:
-      Radius: 2.97
+      Radius: 3.51
       Height: 2.16
     Center:
       Radius: 3.51
-      Height: 1.89
+      Height: 2.16
     Bottom:
-      Radius: 3.01
-      Height: 1.48
+      Radius: 3.51
+      Height: 2.16
     SplineCurvature: 0.578
   RecenteringTarget: 2
   HorizontalAxis:
@@ -825,8 +877,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854688751}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03129315, y: 0.00000008011134, z: -0.0000000038748613, w: 0.9995103}
-  m_LocalPosition: {x: 1.1086136, y: 3.4511366, z: -3.5030472}
+  m_LocalRotation: {x: 0.06011883, y: -0.000000002133134, z: 1.2847445e-10, w: 0.99819124}
+  m_LocalPosition: {x: 1.1086136, y: 3.7201364, z: -3.5030472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -930,7 +982,7 @@ GameObject:
   - component: {fileID: 2030835414}
   - component: {fileID: 2030835413}
   - component: {fileID: 2030835412}
-  - component: {fileID: 2030835411}
+  - component: {fileID: 2030835415}
   m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
@@ -938,28 +990,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &2030835411
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030835410}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2030835412
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1028,6 +1058,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &2030835415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030835410}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0000002, z: 6.123235e-17}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

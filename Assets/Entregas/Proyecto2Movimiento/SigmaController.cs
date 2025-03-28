@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,25 +13,14 @@ public class SigmaMovement : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float rotationSpeed = 10f;
 
-    [Header("Jump")]
-    [SerializeField] private float jumpDuration = 1.4f;
-    [SerializeField] private float jumpCooldown = 1f;
-
-    [Header("Ground Detection")]
-    [SerializeField] private bool isGrounded;
-    [SerializeField] private float GroundedOffset = -0.14f;
-    [SerializeField] private float GroundedRadius = 0.28f;
-    [SerializeField] private LayerMask GroundLayers;
-
     private Vector2 moveInput;
     private Vector2 lookInput;
-    private Vector3 desiredMoveDirection;
 
     private Animator animator;
 
     private bool isRunning;
     private bool isJogging;
-    private bool canJump;
+    private bool canJump = true;
 
     void Start()
     {
@@ -48,11 +36,7 @@ public class SigmaMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-
-        desiredMoveDirection = (transform.right * moveDirection.x + transform.forward * moveDirection.z);
-
-        isJogging = moveInput.x > 0.6f || moveInput.y > 0.6f ? true : false;
+        isJogging = moveInput.magnitude > 0.7f && !isRunning ? true : false;
 
         if(moveInput.magnitude < 0.05f) isRunning = false;
     }
@@ -103,13 +87,9 @@ public class SigmaMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        canJump = isGrounded ? true : false;
-
-        //if (context.performed && canJump)
-        if (context.performed)
+        if (context.performed && canJump)
         {
             animator.SetTrigger("Jump");
-            animator.SetBool("IsJumping", true);
             canJump = false;
 
             StartCoroutine(Jump());
@@ -118,32 +98,8 @@ public class SigmaMovement : MonoBehaviour
 
     private IEnumerator Jump()
     {
-        //rb.linearVelocity = Vector3.zero;
-        //rb.AddForce((desiredMoveDirection * jumpHorizontalForce) + (jumpVerticalForce * Vector3.up), ForceMode.Impulse);
-
+        float jumpDuration = moveInput.magnitude > 0.05f ? 1.2f : 2;
         yield return new WaitForSeconds(jumpDuration);
-
-        animator.SetBool("isJumping", false);
         canJump = true;
-    }
-
-    private void CheckGround()
-    {
-        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-        isGrounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
-        Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
-
-        if (isGrounded) Gizmos.color = transparentGreen;
-        else Gizmos.color = transparentRed;
-
-        // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-        Gizmos.DrawSphere(
-            new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
-            GroundedRadius);
     }
 }
