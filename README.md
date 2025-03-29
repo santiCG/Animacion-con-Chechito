@@ -24,13 +24,12 @@ https://github.com/user-attachments/assets/fe73f7d8-b031-4dff-bbbe-f77b3d841eb9
 ## Entrega #1 Movement
 
 ### Alejandro Villegas
+https://github.com/user-attachments/assets/b4ed474e-1344-4b5e-8204-fa6592f416a8
 
 ### Jacobo Prada
-
 https://github.com/user-attachments/assets/0f0e35de-3612-4931-866b-d9b44b3fe5a6
 
 
 ### Santiago Cardenas
-
 https://github.com/user-attachments/assets/ff37be31-f4a9-405b-bda3-ba81bcf3cbf8
 
