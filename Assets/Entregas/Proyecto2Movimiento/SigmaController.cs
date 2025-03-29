@@ -25,6 +25,9 @@ public class SigmaMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
