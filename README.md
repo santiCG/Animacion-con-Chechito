@@ -21,10 +21,11 @@ https://github.com/user-attachments/assets/d000012e-5c75-42bc-8ce4-35fc7b10f90e
 
 https://github.com/user-attachments/assets/fe73f7d8-b031-4dff-bbbe-f77b3d841eb9
 
-## Entrega #1 Movement
+## Entrega #2 Movement
 
 ### Alejandro Villegas
-https://github.com/user-attachments/assets/b4ed474e-1344-4b5e-8204-fa6592f416a8
+https://github.com/user-attachments/assets/cab42228-96b5-432a-a069-5d0b07181183
+
 
 ### Jacobo Prada
 https://github.com/user-attachments/assets/0f0e35de-3612-4931-866b-d9b44b3fe5a6
