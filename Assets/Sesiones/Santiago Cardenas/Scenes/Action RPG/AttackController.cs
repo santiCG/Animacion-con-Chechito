@@ -5,10 +5,12 @@ using UnityEngine.InputSystem;
 public class AttackController : MonoBehaviour
 {
     private Animator anim;
+    private AttackHitboxController hitboxController;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        hitboxController = GetComponent<AttackHitboxController>();
     }
 
     public void OnLightAttack(InputAction.CallbackContext context)
@@ -30,5 +32,15 @@ public class AttackController : MonoBehaviour
     public void DepleteStamina(float amount)
     {
         Game.Instance.PlayerOne.DepleteStamina(amount);
+    }
+
+    public void ToggleAttackHitbox(int hitboxID)
+    {
+        hitboxController.ToggleHitboxes(hitboxID);
+    }
+
+    public void CleanupAttackHitbox() 
+    {
+        hitboxController.CleanupHitboxes();
     }
 }
