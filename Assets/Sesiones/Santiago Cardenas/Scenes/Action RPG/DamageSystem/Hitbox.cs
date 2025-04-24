@@ -16,9 +16,11 @@ public class Hitbox : MonoBehaviour, IDamageSender<DamageMessage>
     {
         DamageMessage damageMessage = new DamageMessage
         {
-            Sender = this.gameObject,
-            amount = damage,
+            Sender = transform.root.gameObject,
+            amount = damage
         };
+
+        Debug.Log($"Enviador de Dano: {name}");
 
         receiver.ReceiveDamage(damageMessage);
     }

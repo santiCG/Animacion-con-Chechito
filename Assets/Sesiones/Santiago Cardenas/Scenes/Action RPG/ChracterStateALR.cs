@@ -5,9 +5,10 @@ public class ChracterStateALR : MonoBehaviour
 
     [SerializeField] private float startStamina;
     [SerializeField] private float staminaRegen;
+    [SerializeField] private float startHealth;
+    [SerializeField] private float currentHealth;
 
     [SerializeField] private float currentStamina;
-    private float currentHealth;
 
     private void Start()
     {
@@ -28,6 +29,16 @@ public class ChracterStateALR : MonoBehaviour
     public void DepleteStamina(float amount)
     {
         currentStamina = GetStaminDepletion() * amount;
+    }
+
+    public void DepleteHealth(float amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0) 
+        {
+            #warning ToDo: Death
+        }
     }
 
     //public void DepleteStaminaWithParam(string param)
