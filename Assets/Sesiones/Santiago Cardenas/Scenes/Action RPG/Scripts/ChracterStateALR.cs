@@ -31,13 +31,15 @@ public class ChracterStateALR : MonoBehaviour
         currentStamina = GetStaminDepletion() * amount;
     }
 
-    public void DepleteHealth(float amount)
+    public void DepleteHealth(float amount, out bool zeroHealth)
     {
         currentHealth -= amount;
+        zeroHealth = false;
 
         if (currentHealth <= 0) 
         {
             #warning ToDo: Death
+            zeroHealth = true;
         }
     }
 

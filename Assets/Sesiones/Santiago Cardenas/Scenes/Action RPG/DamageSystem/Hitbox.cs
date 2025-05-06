@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour, IDamageSender<DamageMessage>
 {
-    [SerializeField] private float damage;
+    [SerializeField] private DamageMessage damage;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +17,7 @@ public class Hitbox : MonoBehaviour, IDamageSender<DamageMessage>
         DamageMessage damageMessage = new DamageMessage
         {
             Sender = transform.root.gameObject,
-            amount = damage
+            amount = damage.amount
         };
 
         Debug.Log($"Enviador de Dano: {name}");
