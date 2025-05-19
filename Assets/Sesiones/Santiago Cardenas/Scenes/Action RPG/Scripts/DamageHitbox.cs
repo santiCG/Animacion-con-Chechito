@@ -23,8 +23,6 @@ public class DamageHitbox : MonoBehaviour, IDamageReceiver<DamageMessage>
         }
 
         damage.amount *= defenseMultiplier;
-        // Acceder al estado del jugador
-        
 
         // Quitar vida
         OnHit?.Invoke(damage);

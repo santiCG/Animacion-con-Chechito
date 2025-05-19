@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class SigmaMovement : MonoBehaviour
 {
+    [SerializeField] private float walkSpeed = 2f;
+    [SerializeField] private float jogSpeed = 5f;
+
     [Header("Dampeners")]
     [SerializeField] private FloatDampener speedX;
     [SerializeField] private FloatDampener speedY;
@@ -17,6 +20,7 @@ public class SigmaMovement : MonoBehaviour
     private Vector2 lookInput;
 
     private Animator animator;
+    private Rigidbody rb;
 
     private bool isRunning;
     private bool isJogging;
@@ -25,6 +29,7 @@ public class SigmaMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponentInParent<Rigidbody>();
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,9 +44,24 @@ public class SigmaMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        float controlWeight = animator.GetFloat("WeightControl");
+
+        if (controlWeight < 0.95f) return;
+
         isJogging = moveInput.magnitude > 0.7f && !isRunning ? true : false;
 
         if(moveInput.magnitude < 0.05f) isRunning = false;
+
+        Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+
+        Vector3 desiredMoveDirection = (transform.right * moveDirection.x + transform.forward * moveDirection.z);
+
+        float speed = isJogging ? jogSpeed : walkSpeed;
+
+        if (moveDirection != Vector3.zero)
+        {
+            rb.MovePosition(rb.position + desiredMoveDirection * speed * Time.deltaTime);
+        }
     }
 
     private void HandleRotation()
@@ -63,8 +83,8 @@ public class SigmaMovement : MonoBehaviour
         speedX.TargetValue = moveInput.x;
         speedY.TargetValue = moveInput.y;
 
-        animator.SetFloat("SpeedX", speedX.CurrentValue);
-        animator.SetFloat("SpeedY", speedY.CurrentValue);
+        animator.SetFloat("SpeedX", speedX.CurrentValue < 0.05f ? 0 : speedX.CurrentValue);
+        animator.SetFloat("SpeedY", speedY.CurrentValue < 0.05f ? 0 : speedY.CurrentValue);
 
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("IsJogging", isJogging);

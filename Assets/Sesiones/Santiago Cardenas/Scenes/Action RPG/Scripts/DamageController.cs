@@ -40,24 +40,24 @@ public class DamageController : MonoBehaviour
         foreach (DamageMessage message in damageList)
         {
             Game.Instance.PlayerOne.DepleteHealth(message.amount, out bool dead); // esta mal, pq solo estamos accediendo al player1, en caso de que hubiera mas personajes solo modificariamos la vida del player1
-
+            isDead = dead;
             damageDir += (message.Sender.transform.position - transform.position).normalized;
             damageLevel = Math.Max(damageLevel, (int)message.damageLevel);
         }
 
         if(damageList.Count > 0)
         {
+            damageDir = Vector3.ProjectOnPlane(damageDir.normalized, transform.up);
             float damageAngle = Vector3.SignedAngle(transform.forward, damageDir, transform.up);
-            damageDir = Vector3.ProjectOnPlane(damageDir, transform.up);
 
-            animator.SetFloat("DamageDir", (damageAngle/180) + 0.5f + 0.5f);
+            animator.SetFloat("DamageDir", (damageAngle/180) * 0.5f + 0.5f);
             animator.SetInteger("DamageIntensity", damageLevel);
             animator.SetTrigger("Hit");
+
             if(isDead)
             {
                 animator.SetTrigger("Die");
             }
-
             damageList.Clear();
         }
     }

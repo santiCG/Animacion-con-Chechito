@@ -3,9 +3,9 @@ using UnityEngine;
 public class ChracterStateALR : MonoBehaviour
 {
 
-    [SerializeField] private float startStamina;
-    [SerializeField] private float staminaRegen;
-    [SerializeField] private float startHealth;
+    [SerializeField] private float startStamina = 100;
+    [SerializeField] private float staminaRegen = 5;
+    [SerializeField] private float startHealth = 100;
     [SerializeField] private float currentHealth;
 
     [SerializeField] private float currentStamina;
@@ -13,11 +13,11 @@ public class ChracterStateALR : MonoBehaviour
     private void Start()
     {
         currentStamina = startStamina;
+        currentHealth = startHealth;
     }
 
     private float GetStaminDepletion()
     {
-        //Sistema de inventario * 1/stat_fuerza * 1/buff_fuerza
         return 60;
     }
 

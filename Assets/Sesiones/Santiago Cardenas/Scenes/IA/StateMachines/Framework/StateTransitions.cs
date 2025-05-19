@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class StateTransitions<TContext>
+public class StateTransitions<TContext> where TContext : class
 {
     public delegate bool StateTransitionsDelegate(TContext context);
 
@@ -10,7 +10,7 @@ public class StateTransitions<TContext>
 
     public StateTransitionsDelegate onEvaluate;
 
-    public StateTransition(IStateBehavior<TContext> from,IStateBehavior<TContext> to, StateTransitionsDelegate onEvaluate)
+    public StateTransitions(IStateBehavior<TContext> from, IStateBehavior<TContext> to, StateTransitionsDelegate onEvaluate)
     {
         this.from = from; 
         this.to = to; 
