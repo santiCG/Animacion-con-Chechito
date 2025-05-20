@@ -91,7 +91,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!136 &3851489851607800545
 CapsuleCollider:
@@ -4201,13 +4201,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7161041744449365090, guid: 1ce4a4a2b5ba63c47978af1a4d5ad04b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3120070575973791418}
   m_SourcePrefab: {fileID: 100100000, guid: 1ce4a4a2b5ba63c47978af1a4d5ad04b, type: 3}
 --- !u!1 &1013913948603246104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7161041744449365090, guid: 1ce4a4a2b5ba63c47978af1a4d5ad04b, type: 3}
   m_PrefabInstance: {fileID: 7886652714672358010}
   m_PrefabAsset: {fileID: 0}
+--- !u!1818360608 &3120070575973791418
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013913948603246104}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0.71392316, y: -0.16906773, z: 0.7950907}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 8062003919833835527}
+    weight: 1
 --- !u!4 &2376948215183995165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5588853978254340967, guid: 1ce4a4a2b5ba63c47978af1a4d5ad04b, type: 3}
