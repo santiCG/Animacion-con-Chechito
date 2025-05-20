@@ -52,3 +52,13 @@ https://github.com/user-attachments/assets/ff37be31-f4a9-405b-bda3-ba81bcf3cbf8
 
 ![image](https://github.com/user-attachments/assets/f88d81ba-81e7-4878-8305-3e1ae1bf88d7)
 
+### Videos in game
+#### Combos arma ligera
+
+https://github.com/user-attachments/assets/6c7192af-37e8-4379-bccb-a868c43143e8
+#### Combos arma pesada
+
+https://github.com/user-attachments/assets/5365523c-a88f-4248-aeae-a6edc1699455
+
+
+
