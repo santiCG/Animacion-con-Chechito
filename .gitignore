@@ -71,22 +71,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana).meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/0_Controller.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/0_Controller/Controller_M_Big_Sword.controller
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/0_Controller/Controller_M_Big_Sword.controller.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/0__Intro.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/0__Intro/M_Big_Sword@Intro.FBX
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/0__Intro/M_Big_Sword@Intro.FBX.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_A.FBX
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_A.FBX.meta
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_A_Root.FBX
-Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_A_Root.FBX.meta
 Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_B.FBX
 Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_B.FBX.meta
 Assets/Grruzam Powerful Sword Animation(Great Sword, Katana)/Animation/M_Big_Sword/1_Movements/10__Move_to_Idle/Run_to_Idle/M_Big_Sword@Run_Fast_to_Idle_ver_B_Root.FBX
