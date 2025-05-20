@@ -83,8 +83,8 @@ public class SigmaMovement : MonoBehaviour
         speedX.TargetValue = moveInput.x;
         speedY.TargetValue = moveInput.y;
 
-        animator.SetFloat("SpeedX", speedX.CurrentValue < 0.05f ? 0 : speedX.CurrentValue);
-        animator.SetFloat("SpeedY", speedY.CurrentValue < 0.05f ? 0 : speedY.CurrentValue);
+        animator.SetFloat("SpeedX", speedX.CurrentValue < 0.05f && speedX.CurrentValue > -0.05f ? 0 : speedX.CurrentValue);
+        animator.SetFloat("SpeedY", speedY.CurrentValue < 0.05f && speedX.CurrentValue > -0.05f ? 0 : speedY.CurrentValue);
 
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("IsJogging", isJogging);
