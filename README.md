@@ -60,6 +60,8 @@ https://github.com/user-attachments/assets/6c7192af-37e8-4379-bccb-a868c43143e8
 
 https://github.com/user-attachments/assets/6d408145-32a2-42fa-bd59-c840740b1aa4
 
+### Daño y Muerte
 
+https://github.com/user-attachments/assets/29c42c26-8d68-4a7d-9db2-d8f3a8a8aeac
 
 
