@@ -29,7 +29,7 @@ public class EsothericNavigation : MonoBehaviour
             deltaY = 0f;
         }
 
-        movement.SetMotionVector(deltaX, deltaY);
+        movement.SetMotionVector(deltaX * 1.5f, deltaY * 1.5f);
     }
 
     private void Update()

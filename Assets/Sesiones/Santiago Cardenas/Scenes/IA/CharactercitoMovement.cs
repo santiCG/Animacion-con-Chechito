@@ -17,6 +17,12 @@ public class CharactercitoMovement : MonoBehaviour
 
         ApplyMotion();
     }
+    private void FixedUpdate()
+    {
+        if (animator.updateMode != AnimatorUpdateMode.Fixed) return;
+
+        ApplyMotion();
+    }
 
     public void SetMotionVector(float targetX, float targetY)
     {
@@ -29,14 +35,7 @@ public class CharactercitoMovement : MonoBehaviour
         speedX.Update();
         speedY.Update();
 
-        animator.SetFloat("speedX", speedX.CurrentValue);
-        animator.SetFloat("speedY", speedY.CurrentValue);
-    }
-
-    private void FixedUpdate()
-    {
-        if (animator.updateMode != AnimatorUpdateMode.Fixed) return;
-
-        ApplyMotion();
+        animator.SetFloat("SpeedX", speedX.CurrentValue);
+        animator.SetFloat("SpeedY", speedY.CurrentValue);
     }
 }
