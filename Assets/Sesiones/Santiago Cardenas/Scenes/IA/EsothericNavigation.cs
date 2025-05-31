@@ -12,7 +12,7 @@ public class EsothericNavigation : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         movement = GetComponent<CharactercitoMovement>();
-        agent.updatePosition = false;
+        agent.updatePosition = true;
         agent.updateRotation = true;
     }
 
