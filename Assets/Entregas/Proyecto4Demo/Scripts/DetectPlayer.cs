@@ -1,3 +1,4 @@
+using Unity.Behavior;
 using UnityEngine;
 
 public class DetectPlayer : MonoBehaviour
@@ -5,21 +6,38 @@ public class DetectPlayer : MonoBehaviour
     public bool playerInRange;
     public GameObject player;
 
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private float detectionRadius;
+
+    private BehaviorGraphAgent bagent;
+
+    private void Awake()
     {
-        if(other.CompareTag("Player"))
-        {
-            playerInRange = true;
-            player = other.gameObject;
-        }
+        bagent = GetComponent<BehaviorGraphAgent>();
     }
 
-    private void OnTriggerExit(Collider other)
+    public GameObject ReturnPlayerObj()
     {
-        if (other.CompareTag("Player"))
+        Collider[] detectedObjects = Physics.OverlapSphere(transform.position, detectionRadius);
+
+        foreach (var item in detectedObjects)
         {
-            playerInRange = false;
-            player = null;
+            if (item.CompareTag("Player"))
+            {
+                player = item.gameObject;
+                bagent.SetVariableValue("TargetDetected", true);
+                return player;
+            }
         }
+
+        bagent.SetVariableValue("TargetDetected", false);
+        player = null;
+        return player;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
+#endif
 }
