@@ -24,7 +24,7 @@ public class ChracterStateALR : MonoBehaviour
         currentStamina = startStamina;
         currentHealth = startHealth;
     }
-    private void Start()
+    private void OnEnable()
     {
         if (UIManager.Singleton == null) return;
 
@@ -33,6 +33,10 @@ public class ChracterStateALR : MonoBehaviour
 
         OnHealthChanged?.Invoke(currentHealth, startHealth);
         OnStaminaChanged?.Invoke(currentStamina, startStamina);
+    }
+    private void Start()
+    {
+
     }
 
     private float GetStaminDepletion()
@@ -81,5 +85,12 @@ public class ChracterStateALR : MonoBehaviour
         RegenerateStamina(staminaRegen * Time.deltaTime);
     }
 
+    private void OnDisable()
+    {
+        if (UIManager.Singleton == null) return;
+
+        OnHealthChanged -= UIManager.Singleton.GetPlayerHealth;
+        OnStaminaChanged -= UIManager.Singleton.GetPlayerStamina;
+    }
     public float GetCurrentStamina => currentStamina;
 }
