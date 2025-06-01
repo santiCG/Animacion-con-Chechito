@@ -28,6 +28,7 @@ public class ChracterStateALR : MonoBehaviour
     {
         if (UIManager.Singleton == null) return;
 
+        if (gameObject.tag != "Player") return;
         OnHealthChanged += UIManager.Singleton.GetPlayerHealth;
         OnStaminaChanged += UIManager.Singleton.GetPlayerStamina;
 
@@ -56,7 +57,7 @@ public class ChracterStateALR : MonoBehaviour
 
     public void DepleteStamina(float amount)
     {
-        currentStamina = GetStaminDepletion() * amount;
+        currentStamina -= GetStaminDepletion() * amount;
         OnStaminaChanged?.Invoke(currentStamina, startStamina);
     }
 
@@ -64,7 +65,9 @@ public class ChracterStateALR : MonoBehaviour
     {
         currentHealth -= amount;
         zeroHealth = false;
+
         OnHealthChanged?.Invoke(currentHealth, startHealth);
+
         if (currentHealth <= 0) 
         {
             Cursor.lockState = CursorLockMode.None;
@@ -89,6 +92,7 @@ public class ChracterStateALR : MonoBehaviour
     {
         if (UIManager.Singleton == null) return;
 
+        if (gameObject.tag != "Player") return;
         OnHealthChanged -= UIManager.Singleton.GetPlayerHealth;
         OnStaminaChanged -= UIManager.Singleton.GetPlayerStamina;
     }

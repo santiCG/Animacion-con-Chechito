@@ -22,12 +22,13 @@ public class UIManager : MonoBehaviour
             Singleton = this;
         }
 
-        IsMouseVisible = true;
+        IsMouseVisible = false;
+        AlternateMouseVisibility();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             AlternateMouseVisibility();
         }
