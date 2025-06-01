@@ -6,11 +6,14 @@ public class AttackHitboxController : MonoBehaviour
 
     public void ToggleHitboxes(int attackID)
     {
-        for (int hitboxID = 0; hitboxID < hitboxes.Length; hitboxID++)
-        {
-            GameObject hitbox = hitboxes[hitboxID];
-            hitboxes[attackID].gameObject.SetActive(!hitbox.activeSelf);
-        }
+
+        GameObject hitbox = hitboxes[attackID];
+        hitboxes[attackID].gameObject.SetActive(!hitbox.activeSelf);
+        
+        //for (int hitboxID = 0; hitboxID < hitboxes.Length; hitboxID++)
+        //{
+
+        //}
     }
 
     public void CleanupHitboxes()
