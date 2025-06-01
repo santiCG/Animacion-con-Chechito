@@ -15,12 +15,12 @@ public class DamageHitboxAV : MonoBehaviour, IDamageReceiverAV<DamageMessageAV>
 
     public void ReceiveDamage(DamageMessageAV damage)
     {
-
         if(damage.sender == transform.root.gameObject)
         {
             return;
         }
         damage.amount = damage.amount * defenseMultiplier;
+        //Enqueue damage for character
         OnHit?.Invoke(damage);
         Debug.Log($"received damage ({damage.amount})");
     }

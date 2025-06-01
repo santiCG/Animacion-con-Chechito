@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HitboxAV : MonoBehaviour, IDamageSenderAV<DamageMessageAV>
 {
-    [SerializeField] private float damage;
+    [SerializeField] private DamageMessageAV damage;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out IDamageReceiverAV<DamageMessageAV> receiver))
@@ -15,8 +15,9 @@ public class HitboxAV : MonoBehaviour, IDamageSenderAV<DamageMessageAV>
     {
         DamageMessageAV message = new DamageMessageAV()
         {
-            sender = this.gameObject,
-            amount = damage
+            sender = transform.root.gameObject,
+            amount = damage.amount,
+            damageLevel = damage.damageLevel
         };
         receiver.ReceiveDamage(message);
     }

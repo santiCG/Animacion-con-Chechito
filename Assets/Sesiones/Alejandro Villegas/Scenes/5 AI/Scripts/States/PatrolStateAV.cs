@@ -11,7 +11,7 @@ public class PatrolStateAV : IStateBehaviorAV<BasicEnemyContextAV>
     private float currentTime;
     public void OnEnter(BasicEnemyContextAV context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Patrol");
     }
 
     public void OnUpdate(BasicEnemyContextAV context)
@@ -20,7 +20,7 @@ public class PatrolStateAV : IStateBehaviorAV<BasicEnemyContextAV>
 
         if(timer > currentTime)
         {
-            Vector3 targetPosition = Vector3.ProjectOnPlane(Random.insideUnitSphere * Random.Range(0, searchRadius))
+            Vector3 targetPosition = Vector3.ProjectOnPlane(Random.insideUnitSphere * Random.Range(0, searchRadius), context.agent.transform.up);
 
             navigationAgent.destination = targetPosition;
             timer = 0;
@@ -31,17 +31,7 @@ public class PatrolStateAV : IStateBehaviorAV<BasicEnemyContextAV>
         {
             timer += Time.deltaTime;
         }
-    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        context.targetDistance = Vector3.Distance(navigationAgent.transform.position, context.player.transform.position);
     }
 }

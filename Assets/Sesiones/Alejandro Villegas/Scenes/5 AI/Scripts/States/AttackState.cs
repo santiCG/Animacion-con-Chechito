@@ -14,6 +14,7 @@ public class AttackStateAV : IStateBehaviorAV<BasicEnemyContextAV>
     public void OnEnter(BasicEnemyContextAV context)
     {
         attackTriggerId = Animator.StringToHash(attackTriggerName);
+        animator = context.agent.GetComponent<Animator>();
     }
 
     public void OnUpdate(BasicEnemyContextAV context)
@@ -23,8 +24,12 @@ public class AttackStateAV : IStateBehaviorAV<BasicEnemyContextAV>
         {
             animator.SetTrigger(attackTriggerId);
             timer = 0;
-            currentTimer = Random.Range
+            currentTimer = Random.Range(waitTime.x, waitTime.y);
         }
+
+        timer += Time.deltaTime;
+        context.targetDistance = Vector3.Distance(context.agent.transform.position, context.player.transform.position);
+
 
 
     }

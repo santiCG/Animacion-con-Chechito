@@ -5,9 +5,9 @@ using UnityEngine;
 /// </summary>
 public class CharacterStateAV : MonoBehaviour
 {
-    [SerializeField] private float startStamina;
-    [SerializeField] private float staminaRegen;
-    [SerializeField] private float startHealth;
+    [SerializeField] private float startStamina = 100;
+    [SerializeField] private float staminaRegen = 100;
+    [SerializeField] private float startHealth = 100;
 
     [SerializeField] private float currentStamina;
     [SerializeField] private float currentHealth;
@@ -17,6 +17,7 @@ public class CharacterStateAV : MonoBehaviour
     private void Awake()
     {
         currentStamina = startStamina;
+        currentHealth = startHealth;
     }
 
     private void Update()

@@ -5,8 +5,8 @@ public class StateTransitionAV<TContext> where TContext : class
 {
     public delegate bool StateTransitionDelegate(TContext context);
 
-    private IStateBehaviorAV<TContext> from;
-    private IStateBehaviorAV<TContext> to;
+    public IStateBehaviorAV<TContext> from;
+    public IStateBehaviorAV<TContext> to;
 
     public StateTransitionDelegate OnEvaluate;
 

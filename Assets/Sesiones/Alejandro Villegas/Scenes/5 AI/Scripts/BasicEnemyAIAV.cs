@@ -16,7 +16,7 @@ public class BasicEnemyAIAV : MonoBehaviour, IStateMachineAV<BasicEnemyContextAV
         foreach( StateTransitionAV<BasicEnemyContextAV> transition in transitionsMap[currentState])
         {
             if (transition.OnEvaluate(context)) {
-                (IStateMachineAV<BasicEnemyContextAV>)this).
+                ((IStateMachineAV<BasicEnemyContextAV>)this).SwitchState(transition.to);
                 return true;
             }
         }
@@ -35,9 +35,9 @@ public class BasicEnemyAIAV : MonoBehaviour, IStateMachineAV<BasicEnemyContextAV
 
         states = new[]
         {
-           (IStateBehaviorAV<BasicEnemyContextAV>) new PatrolState(),
-            new ChaseState(),
-            new AttackState()
+           (IStateBehaviorAV<BasicEnemyContextAV>) new PatrolStateAV(),
+            new ChaseStateAV(),
+            new AttackStateAV()
         };
 
         transitionsMap =

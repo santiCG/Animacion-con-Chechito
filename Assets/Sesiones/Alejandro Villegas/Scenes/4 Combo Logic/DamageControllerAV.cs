@@ -45,6 +45,7 @@ public class DamageControllerAV : MonoBehaviour
         if (damageList.Count == 0) return;
         damageDirection = Vector3.ProjectOnPlane(damageDirection.normalized, transform.up);
         float damageAngle = Vector3.SignedAngle(transform.forward, damageDirection, transform.up);
+        Debug.Log("Damage Angle:" + damageAngle);
         animator.SetFloat("DamageDirection", (damageAngle / 180 * 0.5f + 0.5f));
         animator.SetInteger("DamageLevel", damageLevel);
         animator.SetTrigger("Damage");
@@ -52,7 +53,7 @@ public class DamageControllerAV : MonoBehaviour
         
         if (isDead )
         {
-
+            animator.SetTrigger("Die");
         }
 
     }
