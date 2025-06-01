@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChracterStateALR : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ChracterStateALR : MonoBehaviour
     [SerializeField] private float currentHealth;
 
     [SerializeField] private float currentStamina;
+    [SerializeField] private Image youDie;
 
     private void Start()
     {
@@ -38,7 +40,9 @@ public class ChracterStateALR : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
-            #warning ToDo: Death
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            youDie.gameObject.SetActive(true);
             zeroHealth = true;
         }
     }

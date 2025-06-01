@@ -7,6 +7,9 @@ public class CheckWeaponType : MonoBehaviour
 
     private Animator animator;
 
+    public RuntimeAnimatorController lightWeaponAnimController;
+    public RuntimeAnimatorController heavyWeaponAnimController;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -15,18 +18,19 @@ public class CheckWeaponType : MonoBehaviour
     private void Update()
     {
         float longWeaponLayerWeight = shortWeapon.gameObject.activeSelf ? 0 : 1;
-        animator.SetLayerWeight(1, longWeaponLayerWeight);
     }
 
     public void ChangeWeapon()
     {
         if(shortWeapon.gameObject.activeSelf)
         {
+            animator.runtimeAnimatorController = heavyWeaponAnimController;
             shortWeapon.gameObject.SetActive(false);
             longWeapon.gameObject.SetActive(true);
         }
         else
         { 
+            animator.runtimeAnimatorController = lightWeaponAnimController;
             longWeapon.gameObject.SetActive(false);
             shortWeapon.gameObject.SetActive(true);
         }
