@@ -30,6 +30,8 @@ public class CharacterStateAV : MonoBehaviour
 
     public void Start()
     {
+        if (UIManager.Singleton == null) return;
+
         OnHealthChanged += UIManager.Singleton.GetPlayerHealth;
         OnStaminaChanged += UIManager.Singleton.GetPlayerStamina;
 
